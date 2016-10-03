@@ -39,3 +39,6 @@ fabric.properties
 .gradle
 /scala/build
 /.idea/*
+/jars
+/plugin-test/.idea/*
+/plugin-test/build/*

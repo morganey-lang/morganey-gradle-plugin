@@ -32,6 +32,7 @@ task wrapper(type: Wrapper) {
 
 apply plugin: 'groovy'
 apply plugin: 'java'
+apply plugin: 'idea'
 apply plugin: 'me.rexim.morganey.gradle'
 
 sourceCompatibility = 1.8
