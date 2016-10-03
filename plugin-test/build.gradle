@@ -15,12 +15,12 @@ sourceCompatibility = 1.8
 
 buildscript {
     repositories {
-        flatDir dirs: "../jars/repo/me/rexim/morganey/gradle/gradle-morganey-plugin/unspecified/"
+        flatDir dirs: "../jars/repo/me/rexim/morganey/gradle/morganey-gradle-plugin/unspecified/"
         mavenCentral()
     }
 
     dependencies {
-        classpath 'me.rexim.morganey.gradle:gradle-morganey-plugin:unspecified'
+        classpath 'me.rexim.morganey.gradle:morganey-gradle-plugin:unspecified'
     }
 }
 dependencies{

@@ -16,4 +16,4 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'gradle-morganey-plugin'
+rootProject.name = 'morganey-gradle-plugin'
