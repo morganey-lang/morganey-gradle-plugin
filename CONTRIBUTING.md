@@ -36,7 +36,7 @@
 3. cd plugin-Test
 4. Run gradle idea
 5. Run gradle build From IDEA Terminal
-6.  Run gradle -q hello
+6. Run gradle build
 7. "Hello From Morganey Plugin" Should Be Printed To The Console
 
 ## Test Project Build Instructions From Command Line
