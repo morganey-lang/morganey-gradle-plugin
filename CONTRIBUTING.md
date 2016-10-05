@@ -10,16 +10,16 @@
 
 1. IntelliJ 2016.X.X Community Stable
 2. Install All Dependencies
-3. Run gradle idea in the root directory 
-4. Run gradle build From IDEA Terminal
-5. Run gradle publish From IDEA Terminal
+3. Run ./gradlew idea in the root directory 
+4. Run ./gradlew build From IDEA Terminal
+5. Run ./gradlew publish From IDEA Terminal
 
 ## Plugin Build Instructions From Command Line
 
 1. Install All Dependencies
 2. cd to the root of the repository
-3. Run gradle build 
-4. Run gradle publish
+3. Run ./gradlew build 
+4. Run ./gradlew publish
 
 
 # Building Plugin Test Project
@@ -34,15 +34,15 @@
 1. IntelliJ 2016.X.X Community Stable
 2. Install All Dependencies
 3. cd plugin-Test
-4. Run gradle idea
-5. Run gradle build From IDEA Terminal
-6.  Run gradle -q hello
+4. Run ./gradlew idea
+5. Run ./gradlew build From IDEA Terminal
+6. Run ./gradlew -q hello
 7. "Hello From Morganey Plugin" Should Be Printed To The Console
 
 ## Test Project Build Instructions From Command Line
 
 1. Install All Dependencies
 2. cd plugin-Test
-3. Run gradle build 
-4.  Run gradle -q hello
+3. Run ./gradlew build 
+4. Run ./gradlew -q hello
 5. "Hello From Morganey Plugin" Should Be Printed To The Console
