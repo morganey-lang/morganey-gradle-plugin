@@ -17,7 +17,6 @@ class MorganeyPlugin implements Plugin<Project> {
             println "Hello from the Morganey Plugin"
         }
         project.task([type: Jar.class], 'package-module') {
-            baseName = 'Morganey-Files'
             from('src/main/morganey/package')
             with(project.jar)
         }
