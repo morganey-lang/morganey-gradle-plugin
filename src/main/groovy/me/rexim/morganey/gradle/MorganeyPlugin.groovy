@@ -1,20 +1,15 @@
 package me.rexim.morganey.gradle
 
-import org.apache.tools.ant.TaskContainer
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.Task
-import org.gradle.api.artifacts.Configuration
-import org.gradle.api.internal.file.collections.SimpleFileCollection
 import org.gradle.api.plugins.JavaPlugin
 
 /**
  * Created by thoma on 03/10/2016.
  */
 class MorganeyPlugin implements Plugin<Project> {
-    ArrayList<File> files;
     ArrayList<File> filesToAdd = new ArrayList<File>()
-    Configuration configuration;
+
     @Override
     void apply(Project project) {
         project.plugins.apply(JavaPlugin.class)
@@ -29,10 +24,17 @@ class MorganeyPlugin implements Plugin<Project> {
             }
         }
         project.task('build-jar') << {
-            type: 'jar'
-            baseName: 'Morganey-Files.jar'
-            from: filesToAdd.collect()
-            println "Packaging " + filesToAdd.size() + " Morganey Files Into JAR"
+            String[] paths = new String[filesToAdd.size()]
+            for(int i = 0; i < paths.length; i++){
+                println filesToAdd.get(i).absolutePath
+                paths[i] = filesToAdd.get(i).absolutePath
+            }
+                type: 'jar'
+                baseName: 'Morganey-Files.jar'
+                destinationDir: project.buildDir.absolutePath
+                from: paths
+                filesToAdd.collect()
+                println "Packaging " + filesToAdd.size() + " Morganey Files Into JAR"
         }
         project.getTasksByName('build', false)[0].finalizedBy(project.getTasksByName('package-module', false)[0])
         project.getTasksByName('package-module', false)[0].finalizedBy(project.getTasksByName('build-jar', false)[0])
@@ -42,7 +44,6 @@ class MorganeyPlugin implements Plugin<Project> {
         File directory = new File(path);
         File[] fList = directory.listFiles();
         for (File file : fList) {
-            println file.name + " : " + file.isDirectory()
             if (file.isFile()) {
                 if(file.name.substring(file.name.length() - 3 , file.name.length())) { // Get File Extension
                     filesToAdd.add(file)
