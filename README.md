@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/morganey-lang/morganey-gradle-plugin.svg?branch=master)](https://travis-ci.org/morganey-lang/morganey-gradle-plugin)
+
 # Morganey Gradle Plugin
 
 ## What Is The Morganey Gradle Plugin
