@@ -10,7 +10,7 @@ import org.gradle.api.tasks.bundling.Jar
  */
 class MorganeyPlugin implements Plugin<Project> {
     ArrayList<File> filesToAdd = new ArrayList<File>()
-
+    String[] paths;
     @Override
     void apply(Project project) {
         project.plugins.apply(JavaPlugin.class)
@@ -21,16 +21,29 @@ class MorganeyPlugin implements Plugin<Project> {
             println "Packaging Morganey Module"
             getFiles(project, project.projectDir.path + "/src")
             for (int i = 0; i < filesToAdd.size(); i++) {
-                println "Adding File: " + filesToAdd.get(i).name
+                println "Adding File: " + filesToAdd.get(i).path
             }
         }
         project.task([type: Jar.class], 'build-jar') {
+            mustRunAfter(getPaths(project))
             baseName = 'Morganey-Files'
-            from('src/test.mng')
+            from(paths)
             with(project.jar)
         }
         project.getTasksByName('build', false)[0].finalizedBy(project.getTasksByName('package-module', false)[0])
         project.getTasksByName('package-module', false)[0].finalizedBy(project.getTasksByName('build-jar', false)[0])
+    }
+
+    def getPaths(Project project) {
+        String[] paths = new String[filesToAdd.size()]
+        println("Function Called")
+        String basepath = project.path
+        for(int i = 0; i < filesToAdd.size(); i++){
+            String currentPath = filesToAdd.get(i).path
+            paths[i] = filesToAdd.get(i).path.substring(basepath.length(), currentPath.length())
+            println paths[i]
+        }
+        this.paths = paths
     }
 
     void getFiles(Project project, String path) {
