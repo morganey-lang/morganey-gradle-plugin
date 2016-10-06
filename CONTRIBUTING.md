@@ -34,8 +34,8 @@
 1. IntelliJ 2016.X.X Community Stable
 2. Install All Dependencies
 3. cd plugin-Test
-4. Run gradle idea
-5. Run gradle build From IDEA Terminal
+4. Run ./gradlew idea
+5. Run ./gradlew build From IDEA Terminal
 6. A JAR Containing All Morganey Files In The Project Will Be Outputted To build/libs
 
 ## Test Project Build Instructions From Command Line
