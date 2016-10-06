@@ -13,11 +13,8 @@ class MorganeyPlugin implements Plugin<Project> {
     @Override
     void apply(Project project) {
         project.plugins.apply(JavaPlugin.class)
-        project.task('hello') << { // This is to be used for testing purposes only
-            println "Hello from the Morganey Plugin"
-        }
         project.task([type: Jar.class], 'package-module') {
-            from('src/main/morganey/package')
+            from('src/main/morganey')
             with(project.jar)
         }
         project.getTasksByName('build', false)[0].finalizedBy(project.getTasksByName('package-module', false)[0])
