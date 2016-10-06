@@ -27,4 +27,4 @@ buildscript {
 }
 ```
 If the build completed sucessfully a JAR file should be generated 
-in the project build directory called `Morganey-Files.jar`
+in the project build directory called `projectname-version.jar`
