@@ -15,14 +15,16 @@ sourceCompatibility = 1.8
 
 buildscript {
     repositories {
-        flatDir dirs: "../jars/repo/me/rexim/morganey/gradle/morganey-gradle-plugin/unspecified/"
-        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
-
     dependencies {
-        classpath 'me.rexim.morganey.gradle:morganey-gradle-plugin:unspecified'
+        classpath "gradle.plugin.me.rexim.morganey.gradle:morganey-gradle-plugin:0.1"
     }
 }
+
+
 dependencies{
     compile 'org.codehaus.groovy:groovy-all:2.4.7'
     testCompile group: 'junit', name: 'junit', version: '4.11'

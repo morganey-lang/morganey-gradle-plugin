@@ -13,32 +13,32 @@ group = 'me.rexim.morganey.gradle'
 apply plugin: 'groovy'
 apply plugin: 'java'
 apply plugin: 'idea'
-apply plugin: 'maven-publish'
 
+
+buildscript {
 // In this section you declare where to find the dependencies of your project
-repositories {
-    // Use 'jcenter' for resolving your dependencies.
-    // You can declare any Maven/Ivy/file repository here.
-    jcenter()
+    repositories {
+        // Use 'jcenter' for resolving your dependencies.
+        // You can declare any Maven/Ivy/file repository here.
+        jcenter()
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies{
+        classpath "com.gradle.publish:plugin-publish-plugin:0.9.6"
+    }
 }
 
 sourceCompatibility = 1.8
+apply plugin: "com.gradle.plugin-publish"
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-        }
-    }
+repositories{
+    jcenter()
+    mavenCentral()
 }
-publishing {
-    repositories {
-        maven {
-            // change to point to your repo, e.g. http://my.org/repo
-            url "./jars/repo"
-        }
-    }
-}
+
 // In this section you declare the dependencies for your production and test code
 dependencies {
     // We use the latest groovy 2.x version for building this library
@@ -49,4 +49,25 @@ dependencies {
     // We use the awesome Spock testing and specification framework
     testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
     testCompile 'junit:junit:4.12'
+}
+
+// Unless overridden in the pluginBundle config DSL, the project version will
+// be used as your plugin version when publishing
+version = "0.1"
+group = "me.rexim.morganey.gradle"
+
+// The configuration example below shows the minimum required properties
+// configured to publish your plugin to the plugin portal
+pluginBundle {
+    website = 'http://www.gradle.org/'
+    vcsUrl = 'https://github.com/gradle/gradle'
+    description = 'Plugin To Support Packaging Morganey Files With Gradle'
+    tags = ['language', 'integration', 'packaging']
+
+    plugins {
+        morganeyPlugin {
+            id = 'me.rexim.morganey.gradle'
+            displayName = 'Morganey Language Plugin'
+        }
+    }
 }
