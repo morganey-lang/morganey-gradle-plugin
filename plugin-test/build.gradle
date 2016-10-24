@@ -1,29 +1,20 @@
+plugins {
+    id 'me.rexim.morganey' version '0.0.1'
+}
+
 group 'plugin-test'
 version '0.1'
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '3.1'
-  distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
+    gradleVersion = '3.1'
+    distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
 
 apply plugin: 'groovy'
 apply plugin: 'java'
 apply plugin: 'idea'
-apply plugin: 'me.rexim.morganey.gradle'
 
 sourceCompatibility = 1.8
-
-buildscript {
-    repositories {
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath "me.rexim.morganey.gradle:morganey-gradle-plugin:0.1"
-    }
-}
-
 
 dependencies{
     compile 'org.codehaus.groovy:groovy-all:2.4.7'
