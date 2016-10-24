@@ -20,7 +20,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath "gradle.plugin.me.rexim.morganey.gradle:morganey-gradle-plugin:0.1"
+        classpath "me.rexim.morganey.gradle:morganey-gradle-plugin:0.1"
     }
 }
 

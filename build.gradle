@@ -59,8 +59,8 @@ group = "me.rexim.morganey.gradle"
 // The configuration example below shows the minimum required properties
 // configured to publish your plugin to the plugin portal
 pluginBundle {
-    website = 'http://www.gradle.org/'
-    vcsUrl = 'https://github.com/gradle/gradle'
+    website = 'https://github.com/morganey-lang/'
+    vcsUrl = 'https://github.com/morganey-lang/morganey-gradle-plugin'
     description = 'Plugin To Support Packaging Morganey Files With Gradle'
     tags = ['language', 'integration', 'packaging']
 
