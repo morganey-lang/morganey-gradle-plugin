@@ -9,7 +9,7 @@ portal][gradle-plugins]:
 2.  Get your API key from the "API Keys" tab and save it to the file
     `~/.gradle/gradle.properties`.
 3.  Make sure you've set up the proper plugin version in the `build.gradle`.
-3.  `./gradlew publishPlugins`
+4.  `./gradlew publishPlugins`
 
 [gradle-plugins]: https://plugins.gradle.org/
 [login]: https://login.gradle.org/user/login
